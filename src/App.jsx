@@ -6,6 +6,7 @@ import Events from './pages/Events';
 import About from './pages/about/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Team from './pages/Team';
 import './index.css';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </div>
     </Router>
