@@ -66,38 +66,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-16 sm:mt-24">
-          <div className="relative rounded-2xl shadow-xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#3937ff] to-[#6a68ff] opacity-90 dark:opacity-80"></div>
-            <div className="relative px-6 py-12 sm:p-16">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                {[
-                  {
-                    number: '50+',
-                    title: 'Events',
-                    description: 'Workshops, hackathons, and tech talks'
-                  },
-                  {
-                    number: '100+',
-                    title: 'Members',
-                    description: 'Active computer engineering students'
-                  },
-                  {
-                    number: '50+',
-                    title: 'Projects',
-                    description: 'Innovative solutions and applications'
-                  }
-                ].map((stat, index) => (
-                  <div key={index} className="text-white">
-                    <p className="text-4xl font-extrabold">{stat.number}</p>
-                    <p className="mt-2 text-lg font-semibold">{stat.title}</p>
-                    <p className="mt-1 text-sm opacity-90">{stat.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
