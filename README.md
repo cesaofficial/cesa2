@@ -1,1 +1,1 @@
-#Computer Engineering Students’ Association (CESA) is a student-driven technical community that promotes practical learning beyond academics. We organize workshops, hackathons, coding events, and tech talks to build real-world skills, innovation, teamwork, and industry readiness.#
+#Computer Engineering Students’ Association (CESA) is a student-driven technical community that promotes practical learning beyond academics. We organize workshops, hackathons, coding events, and tech talks to build real-world skills, innovation, teamwork, and industry readiness.
