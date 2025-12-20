@@ -19,10 +19,10 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Events', href: '#events' },
-    { name: 'Team', href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/about' },
+    { name: 'Events', href: '/events' },
+    { name: 'Team', href: '/team' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (

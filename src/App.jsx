@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './pages/Landing';
+import Events from './pages/Events';
 import './index.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/events" element={<Events />} />
           {/* Add more routes as needed */}
         </Routes>
       </div>
