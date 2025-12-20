@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Code, Cpu, Zap } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -6,21 +6,50 @@ const Hero = () => {
       id="home" 
       className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 pt-32 pb-20 sm:pt-40 sm:pb-32"
     >
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2760%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%233937ff%27 fill-opacity=%270.4%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] dark:opacity-10"></div>
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-25">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(99, 102, 241, 0.4) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.4) 1px, transparent 1px)
+            `,
+            backgroundSize: '32px 32px',
+          }}
+        ></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 mb-6">
+            <Zap className="w-4 h-4 mr-2" />
+            Welcome to CESA
+          </div>
+          
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-            <span className="block">Welcome to </span>
             <span className="block text-[#3937ff] dark:text-[#5d5bff]">Computer Engineering</span>
             <span className="block text-[#3937ff] dark:text-[#5d5bff]">Students' Association</span>
           </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 dark:text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            Empowering the next generation of computer engineers through innovation, collaboration, and excellence in technology.
-          </p>
-          <div className="mt-10 flex justify-center space-x-4">
+          
+          <div className="mt-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
+              Where <span className="font-semibold text-gray-800 dark:text-white">code meets innovation</span> and students become <span className="font-semibold text-gray-800 dark:text-white">tech leaders</span> of tomorrow.
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <Code className="w-5 h-5 mr-2 text-[#3937ff]" />
+                <span>Master In-Demand Skills</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <Cpu className="w-5 h-5 mr-2 text-[#6a68ff]" />
+                <span>Build Real Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="#about"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#3937ff] hover:bg-[#2a28cc] shadow-sm transition-colors duration-200"
