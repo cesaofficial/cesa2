@@ -46,8 +46,8 @@ const TeamSection = () => {
       iconSrc: teamIcons.sports
     },
     {
-      title: "Creative Marketing",
-      description: "Crafting compelling stories and engaging content for our community.",
+      title: "Creative Team",
+      description: "Crafting compelling themes for events and engaging content for our community.",
       iconSrc: teamIcons.creative
     },
     {
