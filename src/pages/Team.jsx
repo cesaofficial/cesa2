@@ -1,211 +1,133 @@
-
 import React, { useState, useEffect } from 'react';
-import { Github, Instagram, Linkedin } from 'lucide-react';
-import teamData from '../data/team';
+import { TEAMS } from '../constants/teams';
+import Sidebar from '../components/team/Sidebar';
+import TeamSection from '../components/team/TeamSection';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
-const TeamMember = ({ member }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const getBorderColor = () => {
-    if (member.isLead) return 'border-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.8)]';
-    if (member.isVicePresident || member.isViceLead) return 'border-[#5d5bff] hover:shadow-[0_0_25px_rgba(93,91,255,0.7)]';
-    return 'border-gray-200 dark:border-gray-700 hover:shadow-[0_0_20px_rgba(57,55,255,0.4)] hover:border-[#5d5bff]';
-  };
-
-  return (
-    <div 
-      className={`relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden border-2 transition-all duration-300 ${getBorderColor()} ${
-        isHovered ? 'transform -translate-y-2 scale-[1.02]' : ''
-      } h-full flex flex-col`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative overflow-hidden aspect-square">
-        <img 
-          src={member.image} 
-          alt={member.name}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = '/team/placeholder.jpg';
-          }}
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{member.name}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{member.position}</p>
-        <div className="flex mt-3 space-x-2">
-          <a 
-            href={member.social.github} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-500 hover:text-[#5d5bff] dark:hover:text-[#5d5bff] transition-colors duration-300"
-            aria-label={`${member.name}'s GitHub`}
-          >
-            <Github size={18} />
-          </a>
-          <a 
-            href={member.social.linkedin} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-500 hover:text-blue-600 transition-colors"
-            aria-label={`${member.name}'s LinkedIn`}
-          >
-            <Linkedin size={18} />
-          </a>
-          <a 
-            href={member.social.instagram} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-500 hover:text-pink-600 transition-colors"
-            aria-label={`${member.name}'s Instagram`}
-          >
-            <Instagram size={18} />
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+const generateTeamId = (teamName) => {
+  return teamName.replace(/ & /g, '-').replace(/\s+/g, '-').toLowerCase();
 };
 
-const TeamSection = () => {
-  const [activeSection, setActiveSection] = useState('leadership');
-  const [activeTab, setActiveTab] = useState('all');
+const Team = () => {
+  const teamNames = TEAMS.map(team => team.name);
+  const [activeTeam, setActiveTeam] = useState(teamNames[0]);
+  const [isHeaderExpanded, setIsHeaderExpanded] = useState(true);
 
-  // Update active section on scroll
   useEffect(() => {
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -10% 0px',
+    });
+
+    const elementsToReveal = document.querySelectorAll('.reveal');
+    elementsToReveal.forEach(el => observer.observe(el));
+
+    // Scroll spy for active team
     const handleScroll = () => {
-      const sections = teamData.teams.map(team => ({
-        id: team.title.toLowerCase().replace(/\s+/g, '-'),
-        element: document.getElementById(team.title.toLowerCase().replace(/\s+/g, '-'))
-      }));
+      const headerHeight = isHeaderExpanded ? 220 : 60;
+      const viewportTop = headerHeight;
+      const viewportBottom = window.innerHeight;
 
-      const scrollPosition = window.scrollY + 100;
+      let maxVisibleRatio = 0;
+      let mostVisibleTeam = '';
 
-      for (const section of sections) {
-        if (section.element) {
-          const sectionTop = section.element.offsetTop;
-          const sectionHeight = section.element.offsetHeight;
-          
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(section.id);
-            break;
+      TEAMS.forEach(team => {
+        const element = document.getElementById(generateTeamId(team.name));
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const visibleTop = Math.max(rect.top, viewportTop);
+          const visibleBottom = Math.min(rect.bottom, viewportBottom);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+          const visibleRatio = rect.height > 0 ? visibleHeight / rect.height : 0;
+
+          if (visibleRatio > maxVisibleRatio) {
+            maxVisibleRatio = visibleRatio;
+            mostVisibleTeam = team.name;
           }
+        }
+      });
+
+      if (mostVisibleTeam && maxVisibleRatio > 0.01) {
+        setActiveTeam(mostVisibleTeam);
+      } else {
+        if (window.scrollY < (isHeaderExpanded ? 200 : 50)) {
+          setActiveTeam(teamNames[0]);
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 100,
-        behavior: 'smooth'
-      });
-    }
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, [teamNames, isHeaderExpanded]);
+
+  const toggleHeader = () => {
+    setIsHeaderExpanded(prev => !prev);
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Hero Section */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Meet Our <span className="text-[#5d5bff]">Team</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            The brilliant minds driving innovation and excellence at CESA
-          </p>
-        </div>
+    <>
+      <div className="background-container">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+      </div>
+      <div className="relative z-10 min-h-screen font-sans text-slate-300 selection:bg-violet-500/30">
+        <div className="sticky top-0 z-20 bg-[#0D0D0D]/80 backdrop-blur-lg border-b border-slate-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <header className="text-center pt-6 pb-2 relative">
+              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-br from-slate-100 to-slate-400 bg-clip-text text-transparent">
+                Meet The Team 2025-26
+              </h1>
+              <button
+                onClick={toggleHeader}
+                className="absolute right-4 bottom-2 bg-slate-700 hover:bg-slate-600 text-white text-sm px-3 py-1 rounded-md transition-colors duration-200 flex items-center justify-center"
+                aria-expanded={isHeaderExpanded}
+                aria-controls="collapsible-team-info"
+              >
+                {isHeaderExpanded ? (
+                  <ChevronUp className="text-lg" />
+                ) : (
+                  <ChevronDown className="text-lg" />
+                )}
+              </button>
 
-        {/* Sticky Navigation */}
-        <div className="sticky top-0 z-10 bg-white dark:bg-gray-900 py-6 mb-16 border-b border-gray-100 dark:border-gray-800 backdrop-blur-sm bg-opacity-90">
-          <div className="flex flex-wrap justify-center gap-3">
-            {['Leadership', ...teamData.teams.slice(1).map(t => t.title)].map((title) => {
-              const id = title.toLowerCase().replace(/\s+/g, '-');
-              return (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
-                    activeSection === id 
-                      ? 'bg-[#5d5bff] text-white shadow-md' 
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {title}
-                </button>
-              );
-            })}
+              <div
+                id="collapsible-team-info"
+                className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isHeaderExpanded ? 'max-h-96' : 'max-h-0'}`}
+              >
+                <p className="mt-2 max-w-2xl mx-auto text-base text-slate-400">
+                  Get to know the passionate individuals driving our initiatives forward.
+                </p>
+                <Sidebar teamNames={teamNames} activeTeam={activeTeam} />
+              </div>
+            </header>
           </div>
         </div>
 
-        {/* Teams Grid */}
-        <div className="space-y-28">
-          {teamData.teams.map((team) => {
-            const leads = team.members.filter(m => m.isLead || m.isViceLead || m.isVicePresident);
-            const members = team.members.filter(m => !m.isLead && !m.isViceLead && !m.isVicePresident);
-            
-            return (
-              <section 
-                key={team.title}
-                id={team.title.toLowerCase().replace(/\s+/g, '-')}
-                className="scroll-mt-28"
-              >
-                <div className="mb-12 text-center">
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                    {team.title} Team
-                  </h2>
-                  <div className="w-20 h-1 bg-[#5d5bff] mx-auto rounded-full"></div>
-                </div>
-
-                {/* Leadership Row */}
-                {leads.length > 0 && (
-                  <div className="mb-16">
-                    <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-8 text-center">
-                      {team.title === 'Leadership' ? 'Leadership Team' : 'Team Leads'}
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                      {leads.map((member, index) => (
-                        <div key={`lead-${index}`} className="h-full">
-                          <TeamMember member={member} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Members Grid */}
-                {members.length > 0 && (
-                  <div>
-                    {leads.length > 0 && (
-                      <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-8 text-center">
-                        Team Members
-                      </h3>
-                    )}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-                      {members.map((member, index) => (
-                        <div key={`member-${index}`} className="h-full">
-                          <TeamMember member={member} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </section>
-            );
-          })}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <main className="pt-16 md:pt-20 pb-16 md:pb-20">
+            <div className="space-y-20">
+              {TEAMS.map((team) => (
+                <TeamSection key={team.name} team={team} />
+              ))}
+            </div>
+          </main>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default TeamSection;
+export default Team;
