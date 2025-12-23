@@ -29,7 +29,7 @@ const Hero = () => {
           
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
             <span className="block text-[#3937ff] dark:text-[#5d5bff]">Computer Engineering</span>
-            <span className="block text-[#3937ff] dark:text-[#5d5bff]">Students' Association</span>
+            <span className="block text-[#3937ff] dark:text-[#5d5bff]">Student's Association</span>
           </h1>
           
           <div className="mt-8 max-w-2xl mx-auto">
