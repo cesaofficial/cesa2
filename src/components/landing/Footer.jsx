@@ -89,7 +89,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://www.linkedin.com/company/cesa-bvcoenm/" 
+                href="https://www.linkedin.com/in/cesa-bvcoe-17200b378/" 
                 className="p-2 rounded-lg hover:bg-gray-800 transition-colors text-blue-500 hover:text-blue-400"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -140,7 +140,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-400">contact@cesa.com</span>
+                <span className="text-gray-400">connect.cesaofficial@gmail.com</span>
               </li>
               <li className="text-gray-400">
                 Computer Engineering Department<br />
