@@ -80,7 +80,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-2">
               <a 
-                href="https://www.instagram.com/cesa_bvcoenm/" 
+                href="https://www.instagram.com/cesa.bvcoe?igsh=MWl2enlkY3UxOThxeg==" 
                 className="p-2 rounded-lg hover:bg-gray-800 transition-colors text-pink-500 hover:text-pink-400"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,7 +109,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="https://github.com/cesa-bvcoenm" 
+                href="https://github.com/cesaofficial" 
                 className="p-2 rounded-lg hover:bg-gray-800 transition-colors text-gray-300 hover:text-white"
                 target="_blank"
                 rel="noopener noreferrer"
