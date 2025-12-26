@@ -6,7 +6,7 @@ export const events = [
     title: "CodeClash 1.0",
     type: "Coding Competition",
     status: "past",
-    date: "2023-09-15T18:30:00+05:30",
+    date: "2024-09-15",
     time: "10:00 AM - 4:00 PM",
     location: "BVCOE Navi Mumbai",
     prizePool: "₹15,000",
@@ -15,7 +15,7 @@ export const events = [
     rounds: [
       {
         name: "Round 1: Qualifier",
-        date: "September 10, 2023",
+        date: "September 10, 2024",
         description: "Initial screening round to select top 30 participants."
       },
       {
@@ -33,19 +33,19 @@ export const events = [
     ],
     winners: [
       {
-        name: "Rohan",
+        name: "Kushal Patil",
         position: 1,
         prize: "₹8,000 + Trophy",
         team: "Individual"
       },
       {
-        name: "Mohan",
+        name: "Kshitij Jadhav",
         position: 2,
         prize: "₹5,000 + Trophy",
         team: "Individual"
       },
       {
-        name: "Sohan",
+        name: "Suyash Gargote",
         position: 3,
         prize: "₹2,000 + Trophy",
         team: "Individual"
@@ -53,7 +53,7 @@ export const events = [
     ],
     guests: [
       {
-        name: "Ronak Sharma",
+        name: "Ankush Choubey",
         role: "Full Stack Developer",
         company: "Alumni, BVCOE",
         bio: "Ronak is a distinguished alumnus of BVCOE with extensive experience in full-stack development. He specializes in building scalable web applications and has worked with several tech startups."
