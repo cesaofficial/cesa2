@@ -56,12 +56,11 @@ export const events = [
         name: "Ankush Choubey",
         role: "Full Stack Developer",
         company: "Alumni, BVCOE",
-        bio: "Ronak is a distinguished alumnus of BVCOE with extensive experience in full-stack development. He specializes in building scalable web applications and has worked with several tech startups."
+        bio: "Ankush Choubey is a distinguished alumnus of BVCOE with extensive experience in full-stack development. He specializes in building scalable web applications and has worked with several tech startups."
       }
     ],
     stats: {
       participants: 150,
-      teams: 120,
       rounds: 3,
       duration: "6 hours"
     },
