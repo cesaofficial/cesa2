@@ -224,8 +224,8 @@ const Contact = () => {
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-gray-900 dark:text-white">Our Location</h3>
                       <p className="mt-1 text-gray-600 dark:text-gray-300">
-                        BVCOE, Sector 4, Kharghar, Navi Mumbai,<br />
-                        Maharashtra 410210
+                        Sector 7,CBD Belapur,Navi Mumbai<br />
+                        Maharashtra 400614
                       </p>
                     </div>
                   </div>
@@ -236,9 +236,9 @@ const Contact = () => {
                     </div>
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-gray-900 dark:text-white">Email Us</h3>
-                      <p className="mt-1 text-gray-600 dark:text-gray-300">
-                        <a href="mailto:cesa@bvcoenm.edu.in" className="hover:text-[#5d5bff] transition-colors">
-                          cesa@bvcoenm.edu.in
+                      <p className="mt-1 text-gray-600 dark:2text-gray-300">
+                        <a href="mailto:connect.cesaofficial@gmail.com" className="hover:text-[#5d5bff] transition-colors">
+                          connect.cesaofficial@gmail.com
                         </a>
                       </p>
                     </div>
@@ -251,8 +251,8 @@ const Contact = () => {
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-gray-900 dark:text-white">Call Us</h3>
                       <p className="mt-1 text-gray-600 dark:text-gray-300">
-                        <a href="tel:+911234567890" className="hover:text-[#5d5bff] transition-colors">
-                          +91 12345 67890
+                        <a href="tel:9322010951" className="hover:text-[#5d5bff] transition-colors">
+                          +919322010951
                         </a>
                       </p>
                     </div>
@@ -266,36 +266,17 @@ const Contact = () => {
                       { 
                         name: 'Instagram', 
                         icon: Instagram, 
-                        url: 'https://www.instagram.com/cesa_bvcoenm/',
+                        url: 'https://www.instagram.com/cesa.bvcoe?igsh=MWl2enlkY3UxOThxeg==',
                         color: 'hover:text-pink-600',
                         iconColor: 'text-pink-500'
                       },
                       { 
                         name: 'LinkedIn', 
                         icon: Linkedin, 
-                        url: 'https://www.linkedin.com/company/cesa-bvcoenm/',
+                        url: 'https://www.linkedin.com/in/cesa-bvcoe-17200b378/',
                         color: 'hover:text-blue-600',
                         iconColor: 'text-blue-600'
                       },
-                      { 
-                        name: 'X (Twitter)', 
-                        icon: XIcon, 
-                        url: 'https://x.com/cesa_bvcoenm',
-                        color: 'hover:bg-gray-100 dark:hover:bg-gray-700',
-                        iconColor: 'text-gray-900 dark:text-gray-100',
-                        customIcon: (
-                          <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L17.217 1.154h1.684zm-.928 19.75h1.474L6.324 2.827H4.753l13.22 18.076z"/>
-                          </svg>
-                        )
-                      },
-                      { 
-                        name: 'GitHub', 
-                        icon: Github, 
-                        url: 'https://github.com/cesa-bvcoenm',
-                        color: 'hover:text-gray-800 dark:hover:text-gray-200',
-                        iconColor: 'text-gray-700 dark:text-gray-300'
-                      }
                     ].map((social) => {
                       const Icon = social.icon;
                       return (
