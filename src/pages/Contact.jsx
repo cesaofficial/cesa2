@@ -300,7 +300,7 @@ const Contact = () => {
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
                 <div className="aspect-w-16 aspect-h-9 w-full h-64 md:h-80">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.607902243939!2d73.06542551581722!3d19.00020068714056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c0c1c2f2b0b5%3A0x6a7c5f7c5f7c5f7c!2sBharati%20Vidyapeeth%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1620000000000&markers=color:red%7C19.0002,73.0676&zoom=16"
+                    src="https://www.google.com/maps/place/Bharati+Vidyapeeth+College+of+Engineering,+Navi+Mumbai/@19.0264657,73.0525033,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c24393d763af:0x266652df8009380d!8m2!3d19.0264606!4d73.0550782!16zL20vMGJ6Nmps?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
