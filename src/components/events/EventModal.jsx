@@ -187,8 +187,8 @@ const EventModal = ({ event, onClose }) => {
                       <div className="pt-3 mt-3 border-t border-gray-100 dark:border-gray-700">
                         <div className="grid grid-cols-2 gap-4">
                           <div className="text-center">
-                            <p className="text-2xl text-center font-bold text-[#6366f1]">{event.stats.participants}+</p>
-                            <p className="text-xs text-center text-gray-500 dark:text-gray-400">Participants</p>
+                            <p className="text-2xl items-center font-bold text-[#6366f1]">{event.stats.participants}+</p>
+                            <p className="text-xs items-center text-gray-500 dark:text-gray-400">Participants</p>
                           </div>
                         </div>
                         {/* View Memories Button */}
