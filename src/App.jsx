@@ -7,6 +7,7 @@ import About from './pages/about/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import Team from './pages/Team';
+import Memories from './pages/Memories';
 import './index.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/memories" element={<Memories />} />
         </Routes>
       </div>
     </Router>

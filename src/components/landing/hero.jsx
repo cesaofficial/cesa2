@@ -51,14 +51,14 @@ const Hero = () => {
           
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="#about"
+              href="/about"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#3937ff] hover:bg-[#2a28cc] shadow-sm transition-colors duration-200"
             >
               Learn more
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
             <a
-              href="#events"
+              href="/events"
               className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-[#3937ff] dark:text-[#5d5bff] bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
             >
               Upcoming Events
