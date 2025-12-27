@@ -1,14 +1,31 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const TeamCard = ({ title, description, iconSrc }) => {
+const generateTeamId = (teamName) => {
+  return teamName.replace(/ & /g, '-').replace(/\s+/g, '-').toLowerCase();
+};
+
+const TeamCard = ({ title, description, iconSrc, targetTeam }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (targetTeam) {
+      const teamId = generateTeamId(targetTeam);
+      navigate(`/team#${teamId}`);
+    }
+  };
+
   return (
-    <div className="group relative bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:bg-gray-700/50 border border-gray-700 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10">
+    <div
+      onClick={handleClick}
+      className="group relative bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:bg-gray-700/50 border border-gray-700 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       <div className="relative z-10 flex flex-col items-center text-center">
         <div className="w-24 h-24 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-          <img 
-            src={iconSrc} 
-            alt={`${title} icon`} 
+          <img
+            src={iconSrc}
+            alt={`${title} icon`}
             className="w-16 h-16 text-white"
             onError={(e) => {
               console.error(`Failed to load icon: ${iconSrc}`);
@@ -38,32 +55,38 @@ const TeamSection = () => {
     {
       title: "Technical Team",
       description: "Driving innovation through cutting-edge technology and solutions.",
-      iconSrc: teamIcons.technical
+      iconSrc: teamIcons.technical,
+      targetTeam: "Technical Team"
     },
     {
       title: "Sports Team",
       description: "Fostering sportsmanship and healthy competition among students.",
-      iconSrc: teamIcons.sports
+      iconSrc: teamIcons.sports,
+      targetTeam: "Sports Team"
     },
     {
       title: "Creative Team",
       description: "Crafting compelling themes for events and engaging content for our community.",
-      iconSrc: teamIcons.creative
+      iconSrc: teamIcons.creative,
+      targetTeam: "Creative Team"
     },
     {
       title: "Sponsorship Team",
       description: "Building valuable partnerships and securing resources for our events.",
-      iconSrc: teamIcons.sponsorship
+      iconSrc: teamIcons.sponsorship,
+      targetTeam: "Marketing & Sponsorship"
     },
     {
       title: "Digital Team",
       description: "Enhancing our digital presence and managing online platforms.",
-      iconSrc: teamIcons.digital
+      iconSrc: teamIcons.digital,
+      targetTeam: "Digital & Social Media"
     },
     {
       title: "PR Team",
       description: "Managing public relations and building strong community connections.",
-      iconSrc: teamIcons.pr
+      iconSrc: teamIcons.pr,
+      targetTeam: "Public Relations"
     }
   ];
 
@@ -76,7 +99,7 @@ const TeamSection = () => {
             Meet the passionate individuals who make our events and initiatives possible through their dedication and expertise.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teams.map((team, index) => (
             <TeamCard
@@ -84,6 +107,7 @@ const TeamSection = () => {
               title={team.title}
               description={team.description}
               iconSrc={team.iconSrc}
+              targetTeam={team.targetTeam}
             />
           ))}
         </div>

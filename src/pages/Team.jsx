@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { TEAMS } from '../constants/teams';
 import Sidebar from '../components/team/Sidebar';
 import TeamSection from '../components/team/TeamSection';
@@ -12,6 +13,21 @@ const Team = () => {
   const teamNames = TEAMS.map(team => team.name);
   const [activeTeam, setActiveTeam] = useState(teamNames[0]);
   const [isHeaderExpanded, setIsHeaderExpanded] = useState(true);
+  const location = useLocation();
+
+  // Handle hash navigation on mount and hash change
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
 
   useEffect(() => {
     // Intersection Observer for reveal animations
