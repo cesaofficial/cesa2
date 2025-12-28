@@ -14,19 +14,7 @@ const About = () => {
       icon: <Code className="w-8 h-8 text-[#5d5bff]" />,
       number: "30+",
       title: "Events/Year",
-      description: "Hackathons, workshops & tech talks"
-    },
-    {
-      icon: <Award className="w-8 h-8 text-[#5d5bff]" />,
-      number: "15+",
-      title: "Awards",
-      description: "Recognitions in tech competitions"
-    },
-    {
-      icon: <Rocket className="w-8 h-8 text-[#5d5bff]" />,
-      number: "50+",
-      title: "Projects",
-      description: "Open source & innovative solutions"
+      description: "TechFest, workshops & tech talks"
     }
   ];
 
@@ -40,44 +28,20 @@ const About = () => {
       icon: <Users className="w-6 h-6 text-[#5d5bff]" />,
       title: "Community Building",
       description: "Networking with like-minded tech enthusiasts"
-    },
-    {
-      icon: <Rocket className="w-6 h-6 text-[#5d5bff]" />,
-      title: "Innovation Hub",
-      description: "Platform for turning ideas into reality"
     }
   ];
 
-  const testimonials = [
-    {
-      id: 1,
-      quote: "CESA's hackathons transformed my approach to problem-solving. The hands-on experience and mentorship helped me land my dream job at a leading tech company.",
-      author: "Priya Patel",
-      role: "Software Engineer, Google"
-    },
-    {
-      id: 2,
-      quote: "Being part of CESA's core team taught me leadership and technical skills that I use every day in my startup. The network I built here is invaluable.",
-      author: "Rahul Verma",
-      role: "Founder, TechStart Inc."
-    }
-  ];
 
   const achievements = [
     { 
       icon: <Code size={40} className="text-indigo-600 dark:text-indigo-400" />,
-      title: "CodeFiesta 2023",
-      description: "Annual flagship hackathon with 200+ participants"
+      title: "Code Clash 2025",
+      description: "Coding Competition with 100+ participants"
     },
     {
       icon: <Users size={40} className="text-indigo-600 dark:text-indigo-400" />,
-      title: "Tech Connect",
+      title: "Alumini Meet",
       description: "Industry expert sessions and networking events"
-    },
-    {
-      icon: <Rocket size={40} className="text-indigo-600 dark:text-indigo-400" />,
-      title: "Project Incubator",
-      description: "Mentored 50+ student projects to completion"
     }
   ];
 
@@ -147,7 +111,7 @@ const About = () => {
               <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Journey</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                  Since our inception in 1990, we've been the driving force behind the college's technical culture, organizing events that bridge the gap between academic learning and industry requirements.
+                  We've been the driving force behind the college's technical culture, organizing events that bridge the gap between academic learning and industry requirements.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   Our community thrives on collaboration, with members working on cutting-edge projects, participating in hackathons, and attending workshops led by industry experts.
@@ -208,29 +172,23 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {[
                 {
-                  title: "CodeFiesta",
-                  description: "Our flagship 36-hour hackathon that brings together the brightest minds to build innovative solutions to real-world problems.",
+                  title: "Code Clash 2025",
+                  description: "Our flagship that brings together the brightest minds to build solutions to real-world problems.",
                   icon: <Code className="w-6 h-6 text-white" />,
-                  stats: "200+ Participants | ₹2L+ Prizes"
+                  stats: "100+ Participants | ₹10k+ Prizes"
                 },
                 {
-                  title: "TechWeek",
+                  title: "TechFest",
                   description: "A week-long technical fest featuring workshops, competitions, and talks by industry leaders and alumni.",
                   icon: <Cpu className="w-6 h-6 text-white" />,
-                  stats: "15+ Events | 1000+ Footfall"
+                  stats: "1 Event | 10+ Competition | 3+ Workshops"
                 },
                 {
                   title: "AlumConnect",
-                  description: "Networking events and mentorship sessions with our esteemed alumni working at top tech companies worldwide.",
+                  description: "Networking events and mentorship sessions with our esteemed alumni working at top tech companies.",
                   icon: <Users className="w-6 h-6 text-white" />,
                   stats: "50+ Mentors | 100+ Success Stories"
                 },
-                {
-                  title: "Project Expo",
-                  description: "Showcasing innovative projects by students, with opportunities for funding and incubation.",
-                  icon: <Rocket className="w-6 h-6 text-white" />,
-                  stats: "50+ Projects | 10+ Incubated"
-                }
               ].map((item, index) => (
                 <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                   <div className="p-6">
@@ -291,30 +249,8 @@ const About = () => {
           ></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-            Ready to be part of CESA?
-          </h2>
-          <p className="mt-4 text-xl text-blue-100 max-w-2xl mx-auto">
-            Applications for our core team and upcoming events are now open. Let's build something amazing together!
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              to="/join"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[#5d5bff] bg-white hover:bg-gray-100 shadow-sm transition-colors duration-200"
-            >
-              Join Our Team
-              <Users className="ml-2 h-4 w-4" />
-            </Link>
-            <Link
-              to="/events"
-              className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white/10 transition-colors duration-200"
-            >
-              View Events Calendar
-              <Calendar className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
           <p className="mt-6 text-blue-100 text-sm">
-            Follow us on social media for updates and announcements
+            Follow us on social media @cesa.bvcoe for updates and announcements
           </p>
         </div>
       </section>
