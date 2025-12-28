@@ -5,7 +5,7 @@ import { Calendar, MapPin, Award, Clock } from 'lucide-react';
 const EventCard = ({ event, viewMode = 'grid', onClick }) => {
   const formattedDate = format(new Date(event.date), 'MMM d, yyyy • hh:mm a');
   
-  if (viewMode == 'list') {
+  if (viewMode === 'list') {
     return (
       <div 
         onClick={onClick}
