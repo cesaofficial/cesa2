@@ -76,7 +76,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Computer Engineering Students' Association - Fostering innovation and technical excellence in computer engineering.
+              Computer Engineering Student's Association - Fostering innovation and technical excellence in computer engineering.
             </p>
             <div className="flex space-x-2">
               <a 
@@ -133,7 +133,7 @@ const Footer = () => {
               </li>
               <li className="text-gray-400">
                 Computer Engineering Department<br />
-                Bharati VidyaPeeth College Of Engineering - Belapur Sector 7<br />
+                Bharati VidyaPeeth College Of Engineering - CBD Belapur Sector 7<br />
                 Navi Mumbai, Maharashtra - 400614
               </li>
             </ul>
