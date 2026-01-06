@@ -1,8 +1,10 @@
 import React from 'react';
 import { X, Calendar as CalendarIcon, MapPin, Award, Users, Clock, ExternalLink, Bookmark } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 
 const EventModal = ({ event, onClose }) => {
+  const navigate = useNavigate();
   if (!event) return null;
 
   const formatDate = (dateString) => {
@@ -195,9 +197,8 @@ const EventModal = ({ event, onClose }) => {
                         <div className="pt-4">
                           <button 
                             onClick={() => {
-                              // TODO: Add navigation to memories section
-                              // This will require adding a route in App.jsx and creating a Memories component
-                              console.log('Navigate to memories for event:', event.id);
+                              onClose();
+                              navigate(`/memories?event=${encodeURIComponent(event.title)}`);
                             }}
                             className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-[#6366f1] hover:bg-[#4f46e5] rounded-lg transition-colors"
                           >
