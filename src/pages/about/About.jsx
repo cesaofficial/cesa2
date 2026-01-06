@@ -1,83 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Award, Users, Code, Zap, Cpu, BookOpen, Rocket, GraduationCap, Briefcase, Globe, Calendar, Clock, MapPin, ArrowRight , Quote } from 'lucide-react';
+import { Award, Users, Code, Zap, Cpu, BookOpen, Rocket, GraduationCap, Briefcase, Globe, Calendar, Clock, MapPin, ArrowRight, Quote, ListChecks, Trophy, Users2 } from 'lucide-react';
 
 const About = () => {
   const stats = [
     { 
       icon: <Users className="w-8 h-8 text-[#5d5bff]" />,
-      number: "500+",
-      title: "Active Members",
-      description: "Dedicated tech enthusiasts in our community"
+      title: "Active Community",
+      description: "Dedicated tech enthusiasts"
     },
     {
       icon: <Code className="w-8 h-8 text-[#5d5bff]" />,
-      number: "30+",
-      title: "Events/Year",
-      description: "Hackathons, workshops & tech talks"
+      title: "Regular Events",
+      description: "Hackathons & tech talks"
     },
     {
-      icon: <Award className="w-8 h-8 text-[#5d5bff]" />,
-      number: "15+",
-      title: "Awards",
-      description: "Recognitions in tech competitions"
+      icon: <Zap className="w-8 h-8 text-[#5d5bff]" />,
+      title: "Innovative Projects",
+      description: "Open source solutions"
     },
     {
       icon: <Rocket className="w-8 h-8 text-[#5d5bff]" />,
-      number: "50+",
-      title: "Projects",
-      description: "Open source & innovative solutions"
+      title: "Learning Sessions",
+      description: "Workshops & skill development"
     }
+  ];
+
+  const codeClashHighlights = [
+    { icon: <Award className="w-5 h-5 mr-2 text-[#5d5bff]" />, text: "Premier coding competition with exciting prizes and recognition" },
+    { icon: <Code className="w-5 h-5 mr-2 text-[#5d5bff]" />, text: "Test your skills in algorithm design and optimization" },
+    { icon: <Rocket className="w-5 h-5 mr-2 text-[#5d5bff]" />, text: "Real-world problem statements from top tech companies" },
+    { icon: <Users className="w-5 h-5 mr-2 text-[#5d5bff]" />, text: "Network with industry professionals and fellow coders" }
+  ];
+
+  const eventFeatures = [
+    { icon: <ListChecks className="w-5 h-5 mr-2 text-[#5d5bff]" />, title: "Multiple Rounds", desc: "Progressive challenges that test various aspects of coding" },
+    { icon: <Clock className="w-5 h-5 mr-2 text-[#5d5bff]" />, title: "Time-bound", desc: "Test your speed and accuracy under pressure" },
+    { icon: <Trophy className="w-5 h-5 mr-2 text-[#5d5bff]" />, title: "Prizes & Recognition", desc: "Win exciting prizes and get noticed by recruiters" },
+    { icon: <Users2 className="w-5 h-5 mr-2 text-[#5d5bff]" />, title: "Community", desc: "Compete with the best coders and learn from peers" }
   ];
 
   const features = [
     {
       icon: <Code className="w-6 h-6 text-[#5d5bff]" />,
-      title: "Technical Excellence",
-      description: "Hands-on coding sessions and workshops"
+      title: "Technical Growth",
+      description: "Enhance your coding and problem-solving skills"
     },
     {
       icon: <Users className="w-6 h-6 text-[#5d5bff]" />,
-      title: "Community Building",
-      description: "Networking with like-minded tech enthusiasts"
+      title: "Community",
+      description: "Connect with fellow tech enthusiasts"
     },
     {
       icon: <Rocket className="w-6 h-6 text-[#5d5bff]" />,
-      title: "Innovation Hub",
-      description: "Platform for turning ideas into reality"
-    }
-  ];
-
-  const testimonials = [
-    {
-      id: 1,
-      quote: "CESA's hackathons transformed my approach to problem-solving. The hands-on experience and mentorship helped me land my dream job at a leading tech company.",
-      author: "Priya Patel",
-      role: "Software Engineer, Google"
-    },
-    {
-      id: 2,
-      quote: "Being part of CESA's core team taught me leadership and technical skills that I use every day in my startup. The network I built here is invaluable.",
-      author: "Rahul Verma",
-      role: "Founder, TechStart Inc."
-    }
-  ];
-
-  const achievements = [
-    { 
-      icon: <Code size={40} className="text-indigo-600 dark:text-indigo-400" />,
-      title: "CodeFiesta 2023",
-      description: "Annual flagship hackathon with 200+ participants"
-    },
-    {
-      icon: <Users size={40} className="text-indigo-600 dark:text-indigo-400" />,
-      title: "Tech Connect",
-      description: "Industry expert sessions and networking events"
-    },
-    {
-      icon: <Rocket size={40} className="text-indigo-600 dark:text-indigo-400" />,
-      title: "Project Incubator",
-      description: "Mentored 50+ student projects to completion"
+      title: "Innovation",
+      description: "Turn your ideas into reality"
     }
   ];
 
@@ -105,12 +80,12 @@ const About = () => {
             </div>
             
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-              <span className="block text-[#3937ff] dark:text-[#5d5bff]">Code. Create.</span>
-              <span className="block text-[#3937ff] dark:text-[#5d5bff]">Collaborate.</span>
+              <span className="block text-[#3937ff] dark:text-[#5d5bff]">Empowering</span>
+              <span className="block text-[#3937ff] dark:text-[#5d5bff]">Tech Enthusiasts</span>
             </h1>
             
             <p className="mt-8 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
-              The official technical society of BVCOE, fostering <span className="font-semibold text-gray-800 dark:text-white">innovation</span> and <span className="font-semibold text-gray-800 dark:text-white">technical excellence</span> since 1990.
+              The official technical society of BVCOE, fostering <span className="font-semibold text-gray-800 dark:text-white">innovation</span> and <span className="font-semibold text-gray-800 dark:text-white">technical excellence</span>.
             </p>
           </div>
         </div>
@@ -124,30 +99,29 @@ const About = () => {
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 dark:bg-gray-700 mx-auto mb-4">
                   {stat.icon}
                 </div>
-                <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white">{stat.number}</h3>
-                <p className="mt-2 text-center font-medium text-gray-900 dark:text-gray-200">{stat.title}</p>
-                <p className="mt-1 text-center text-sm text-gray-500 dark:text-gray-400">{stat.description}</p>
+                <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white">{stat.title}</h3>
+                <p className="mt-2 text-center text-gray-500 dark:text-gray-400">{stat.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Who We Are */}
+      {/* What We Do */}
       <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Who We Are</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">CESA is the official technical society of BVCOE, dedicated to fostering technical excellence and innovation among students.</p>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Do</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">Empowering students with technical skills and opportunities for growth.</p>
             <div className="w-24 h-1 bg-[#5d5bff] mx-auto"></div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Journey</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Mission</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                  Since our inception in 1990, we've been the driving force behind the college's technical culture, organizing events that bridge the gap between academic learning and industry requirements.
+                  We are dedicated to fostering a culture of technical excellence and innovation within our community. Through various initiatives, we aim to bridge the gap between academic learning and real-world applications.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   Our community thrives on collaboration, with members working on cutting-edge projects, participating in hackathons, and attending workshops led by industry experts.
@@ -175,14 +149,10 @@ const About = () => {
               <div className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-xl h-full">
                 <img 
                   src="/bvcoe.webp" 
-                  alt="CESA Team"
+                  alt="CESA Community"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
-                  <div className="flex items-center text-white/80 text-sm mb-2">
-                    <Users className="w-4 h-4 mr-2" />
-                    <span>CESA Core Team 2023-24</span>
-                  </div>
                   <h3 className="text-2xl font-bold text-white">Our Community</h3>
                   <p className="text-white/80 mt-1">Passionate minds, innovative solutions</p>
                 </div>
@@ -191,131 +161,126 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/* Events Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Flagship Event: CodeClash */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(99, 102, 241, 0.4) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.4) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px',
+          }}></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Flagship Events</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">Where innovation meets execution</p>
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 mb-6">
+              <Zap className="w-4 h-4 mr-2" />
+              Flagship Event
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">CodeClash</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">Where the best coders compete and create</p>
             <div className="w-24 h-1 bg-[#5d5bff] mx-auto mt-4"></div>
           </div>
           
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#5d5bff] to-transparent"></div>
-            
-            {/* Event Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "CodeFiesta",
-                  description: "Our flagship 36-hour hackathon that brings together the brightest minds to build innovative solutions to real-world problems.",
-                  icon: <Code className="w-6 h-6 text-white" />,
-                  stats: "200+ Participants | ₹2L+ Prizes"
-                },
-                {
-                  title: "TechWeek",
-                  description: "A week-long technical fest featuring workshops, competitions, and talks by industry leaders and alumni.",
-                  icon: <Cpu className="w-6 h-6 text-white" />,
-                  stats: "15+ Events | 1000+ Footfall"
-                },
-                {
-                  title: "AlumConnect",
-                  description: "Networking events and mentorship sessions with our esteemed alumni working at top tech companies worldwide.",
-                  icon: <Users className="w-6 h-6 text-white" />,
-                  stats: "50+ Mentors | 100+ Success Stories"
-                },
-                {
-                  title: "Project Expo",
-                  description: "Showcasing innovative projects by students, with opportunities for funding and incubation.",
-                  icon: <Rocket className="w-6 h-6 text-white" />,
-                  stats: "50+ Projects | 10+ Incubated"
-                }
-              ].map((item, index) => (
-                <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="p-6">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#5d5bff] text-white mb-4">
-                      {item.icon}
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="md:flex">
+                <div className="md:w-2/3 p-8 md:p-10">
+                  <div className="flex items-center space-x-2 mb-6">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#5d5bff] to-[#8b8aff] text-white">
+                      <Code className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">{item.description}</p>
-                    <p className="text-sm text-[#5d5bff] font-medium">{item.stats}</p>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-[#5d5bff] to-[#8b8aff] bg-clip-text text-transparent">CodeClash</h3>
+                  </div>
+                  
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    CodeClash stands as our premier coding competition, a battleground where the most talented programmers come together to solve complex challenges, push their limits, and emerge as coding champions.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    {eventFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-start p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                        <div className="flex-shrink-0 mt-0.5">
+                          {feature.icon}
+                        </div>
+                        <div className="ml-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white">{feature.title}</h4>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">{feature.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-100 dark:border-blue-800/50">
+                    <h4 className="font-medium text-blue-800 dark:text-blue-200 mb-2">Why Compete?</h4>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">
+                      Showcase your skills to top recruiters, win amazing prizes, and join an elite network of talented developers who've made their mark in the tech industry.
+                    </p>
                   </div>
                 </div>
-              ))}
+                
+                <div className="md:w-1/3 bg-gradient-to-b from-[#5d5bff] to-[#8b8aff] p-8 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-white mb-4">Competition Highlights</h3>
+                    <ul className="space-y-3">
+                      {codeClashHighlights.map((highlight, index) => (
+                        <li key={index} className="flex items-start text-blue-100 mb-3 last:mb-0">
+                          {highlight.icon}
+                          <span className="text-blue-100">{highlight.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-auto bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                    <h4 className="font-medium text-white mb-2">Ready to Compete?</h4>
+                    <p className="text-sm text-blue-100 mb-4">
+                      Stay tuned for the next edition of CodeClash. Follow us for updates!
+                    </p>
+                    <button className="w-full bg-white text-[#5d5bff] hover:bg-gray-100 font-medium py-2 px-4 rounded-lg transition-colors">
+                      Notify Me
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Testimonials */}
+      {/* Get Involved */}
       <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What People Say</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">Hear from our community</p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Get Involved</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
+            Join our community of passionate tech enthusiasts and take your skills to the next level.
+          </p>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
-                <Quote className="text-indigo-600 dark:text-indigo-400 w-8 h-8 mb-4" />
-                <p className="text-gray-600 dark:text-gray-300 italic mb-6">"{testimonial.quote}"</p>
-                <div className="flex items-center">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{testimonial.author}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 mx-auto">
+                <Code className="w-6 h-6" />
               </div>
-            ))}
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Participate</h3>
+              <p className="text-gray-600 dark:text-gray-400">Join our events and competitions to test your skills and learn from others.</p>
+            </div>
+            
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 mx-auto">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Connect</h3>
+              <p className="text-gray-600 dark:text-gray-400">Meet like-minded individuals and build your professional network.</p>
+            </div>
+            
+            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 mx-auto">
+                <Rocket className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Grow</h3>
+              <p className="text-gray-600 dark:text-gray-400">Develop your skills through hands-on projects and expert-led workshops.</p>
+            </div>
           </div>
-        </div>
-      </section>
-      {/* Join Us Section */}
-      <section className="relative py-20 bg-gradient-to-r from-[#5d5bff] to-[#8b8aff] overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px)
-              `,
-              backgroundSize: '32px 32px',
-            }}
-          ></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-            Ready to be part of CESA?
-          </h2>
-          <p className="mt-4 text-xl text-blue-100 max-w-2xl mx-auto">
-            Applications for our core team and upcoming events are now open. Let's build something amazing together!
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              to="/join"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[#5d5bff] bg-white hover:bg-gray-100 shadow-sm transition-colors duration-200"
-            >
-              Join Our Team
-              <Users className="ml-2 h-4 w-4" />
-            </Link>
-            <Link
-              to="/events"
-              className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white/10 transition-colors duration-200"
-            >
-              View Events Calendar
-              <Calendar className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
-          <p className="mt-6 text-blue-100 text-sm">
-            Follow us on social media for updates and announcements
-          </p>
         </div>
       </section>
     </div>
