@@ -13,10 +13,9 @@ const WhatsHappening = () => {
       status: "upcoming",
       date: "2025-01-21",
       location: "College Quadrangle",
-      prizePool: "₹2,000",
       teamSize: "4 members",
       entryFee: "₹200",
-      oneLiner: "Unleash your detective skills in an epic campus-wide treasure hunt.",
+      oneLiner: "🗺️ Adventure calls your name! The most epic campus treasure hunt awaits!",
       gradient: "from-purple-500 to-pink-500",
       icon: Search
     },
@@ -27,10 +26,9 @@ const WhatsHappening = () => {
       status: "upcoming",
       date: "2025-01-21",
       location: "Computer Lab",
-      prizePool: "₹3,000",
-      teamSize: "2-3 members",
-      entryFee: "₹150",
-      oneLiner: "Crack the code, unlock the mystery, claim your digital fortune.",
+      teamSize: "4 members",
+      entryFee: "₹120 per team of 4",
+      oneLiner: "🔥 The wait is over! Crack the legendary 8-digit code and claim victory!",
       gradient: "from-blue-500 to-cyan-500",
       icon: Zap
     }
