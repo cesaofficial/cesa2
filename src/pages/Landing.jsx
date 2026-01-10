@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import Hero from '../components/landing/hero';
 import MissionSection from '../components/landing/MissionSection';
+import WhatsHappening from '../components/landing/WhatsHappening';
 import TeamSection from '../components/landing/TeamSection';
 import SponsorCTA from '../components/landing/SponsorCTA';
 import Footer from '../components/landing/Footer';
@@ -21,6 +22,7 @@ const Landing = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <WhatsHappening />
         <MissionSection />
         <TeamSection />
         <SponsorCTA />
