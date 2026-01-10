@@ -1,10 +1,11 @@
-import React from 'react';
-import { X, Calendar as CalendarIcon, MapPin, Award, Users, Clock, ExternalLink, Bookmark } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Calendar as CalendarIcon, MapPin, Award, Users, Clock, ExternalLink, Bookmark, Copy, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 
 const EventModal = ({ event, onClose }) => {
   const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
   if (!event) return null;
 
   const formatDate = (dateString) => {
@@ -12,6 +13,59 @@ const EventModal = ({ event, onClose }) => {
   };
 
   const isPastEvent = event.status === 'past';
+
+  const generateShareContent = () => {
+    const baseUrl = 'https://cesa2.vercel.app';
+    const eventUrl = `${baseUrl}/events/${event.id}`;
+    
+    // Use the description as-is with all emojis and formatting
+    const shareText = `${event.description}\n\n` +
+      `📅 Date: ${formatDate(event.date)}\n` +
+      `🕐 Time: ${event.time || 'TBA'}\n` +
+      `📍 Location: ${event.location}\n` +
+      `💰 Prize Pool: ${event.prizePool}\n` +
+      `👥 Team Size: ${event.teamSize}\n` +
+      `💸 Entry Fee: ${event.entryFee}\n\n` +
+      `🔗 Register now: ${event.registrationLink}\n` +
+      `🌐 More info: https://cesa2.vercel.app\n\n` +
+      `#CESA #BVCOE #TechEvent #${event.title.replace(/\s+/g, '')}`;
+    
+    return { text: shareText, url: eventUrl };
+  };
+
+  const handleCopyLink = async () => {
+    const { text } = generateShareContent();
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
+  const handleShare = (platform) => {
+    const { text, url } = generateShareContent();
+    const encodedText = encodeURIComponent(text);
+    const encodedUrl = encodeURIComponent(url);
+    
+    let shareUrl = '';
+    
+    switch (platform) {
+      case 'Twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+        break;
+      case 'LinkedIn':
+        // For LinkedIn, we'll open the URL and let user add description manually
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+        break;
+      case 'WhatsApp':
+        shareUrl = `https://wa.me/?text=${encodedText}`;
+        break;
+    }
+    
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -69,9 +123,9 @@ const EventModal = ({ event, onClose }) => {
                 {/* About Section */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">About the Event</h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                     {event.description}
-                  </p>
+                  </div>
                 </div>
 
                 {/* Rounds Section */}
@@ -100,6 +154,25 @@ const EventModal = ({ event, onClose }) => {
                           </div>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Rules Section */}
+                {event.rules && event.rules.length > 0 && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Rules & Guidelines</h3>
+                    <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
+                      <ul className="space-y-2">
+                        {event.rules.map((rule, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#3937ff]/10 text-[#3937ff] dark:bg-[#5d5bff]/20 dark:text-[#5d5bff] flex items-center justify-center text-xs font-medium mt-0.5">
+                              {index + 1}
+                            </div>
+                            <p className="text-gray-600 dark:text-gray-300 text-sm">{rule}</p>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 )}
@@ -244,6 +317,7 @@ const EventModal = ({ event, onClose }) => {
                     {['Twitter', 'LinkedIn', 'WhatsApp'].map((platform) => (
                       <button
                         key={platform}
+                        onClick={() => handleShare(platform)}
                         className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                         title={`Share on ${platform}`}
                       >
@@ -265,63 +339,113 @@ const EventModal = ({ event, onClose }) => {
                         )}
                       </button>
                     ))}
+                    <button
+                      onClick={handleCopyLink}
+                      className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                      title="Copy event details"
+                    >
+                      {copied ? (
+                        <Check className="w-5 h-5 text-green-500" />
+                      ) : (
+                        <Copy className="w-5 h-5" />
+                      )}
+                    </button>
                   </div>
+                  {copied && (
+                    <p className="text-xs text-green-600 dark:text-green-400 text-center mt-2">
+                      Event details copied! Paste into LinkedIn for best results.
+                    </p>
+                  )}
                 </div>
+                {/* Coordinators Section */}
+                {event.coordinators && event.coordinators.length > 0 && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Event Coordinators</h3>
+                    <div className="space-y-3">
+                      {event.coordinators.map((coordinator, index) => (
+                        <div key={index} className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <h4 className="font-medium text-gray-900 dark:text-white">{coordinator.name}</h4>
+                              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                                Contact: {coordinator.contact}
+                              </p>
+                            </div>
+                            <div className="flex-shrink-0">
+                              <button
+                                onClick={() => window.open(`tel:${coordinator.contact.replace(/\s/g, '')}`, '_self')}
+                                className="p-2 rounded-full bg-[#3937ff]/10 text-[#3937ff] dark:bg-[#5d5bff]/20 dark:text-[#5d5bff] hover:bg-[#3937ff]/20 dark:hover:bg-[#5d5bff]/30 transition-colors"
+                                title="Call coordinator"
+                              >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Feedback Form Section */}
-                <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Share Your Feedback</h3>
-                  <form className="space-y-4">
-                    <div>
-                      <label htmlFor="feedback-rating" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        How was your experience?
-                      </label>
-                      <div className="flex items-center space-x-2">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <React.Fragment key={star}>
-                            <input
-                              type="radio"
-                              id={`star${star}`}
-                              name="rating"
-                              value={star}
-                              className="sr-only"
-                            />
-                            <label
-                              htmlFor={`star${star}`}
-                              className="text-2xl cursor-pointer text-gray-300 hover:text-yellow-400 peer-hover:text-yellow-400 peer-checked:text-yellow-400"
-                              title={`${star} star${star > 1 ? 's' : ''}`}
-                            >
-                              ★
-                            </label>
-                          </React.Fragment>
-                        ))}
+                {event.feedback !== false && (
+                  <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Share Your Feedback</h3>
+                    <form className="space-y-4">
+                      <div>
+                        <label htmlFor="feedback-rating" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                          How was your experience?
+                        </label>
+                        <div className="flex items-center space-x-2">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <React.Fragment key={star}>
+                              <input
+                                type="radio"
+                                id={`star${star}`}
+                                name="rating"
+                                value={star}
+                                className="sr-only"
+                              />
+                              <label
+                                htmlFor={`star${star}`}
+                                className="text-2xl cursor-pointer text-gray-300 hover:text-yellow-400 peer-hover:text-yellow-400 peer-checked:text-yellow-400"
+                                title={`${star} star${star > 1 ? 's' : ''}`}
+                              >
+                                ★
+                              </label>
+                            </React.Fragment>
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-                    <div>
-                      <label htmlFor="feedback-comment" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Your feedback (optional)
-                      </label>
-                      <textarea
-                        id="feedback-comment"
-                        rows="3"
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] dark:bg-gray-700 dark:text-white"
-                        placeholder="Share your thoughts about the event..."
-                      ></textarea>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
-                        Your feedback helps us improve future events
+                      <div>
+                        <label htmlFor="feedback-comment" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                          Your feedback (optional)
+                        </label>
+                        <textarea
+                          id="feedback-comment"
+                          rows="3"
+                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] dark:bg-gray-700 dark:text-white"
+                          placeholder="Share your thoughts about the event..."
+                        ></textarea>
                       </div>
-                      <button
-                        type="submit"
-                        className="px-4 py-2 bg-[#6366f1] text-white font-medium rounded-lg hover:bg-[#4f46e5] transition-colors"
-                      >
-                        Submit Feedback
-                      </button>
-                    </div>
-                  </form>
-                </div>
+
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm text-gray-500 dark:text-gray-400">
+                          Your feedback helps us improve future events
+                        </div>
+                        <button
+                          type="submit"
+                          className="px-4 py-2 bg-[#6366f1] text-white font-medium rounded-lg hover:bg-[#4f46e5] transition-colors"
+                        >
+                          Submit Feedback
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                )}
               </div>
             </div>
           </div>
