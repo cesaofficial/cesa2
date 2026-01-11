@@ -122,12 +122,12 @@ export const events = [
   },
   {
     id: 3,
-    title: "8 Digit Heist",
+    title: "The 8 Digit Heist",
     type: "Mystery Challenge",
     status: "upcoming",
     date: "2025-01-21",
     location: "Computer Lab",
-    prizePool: "₹1,200",
+    prizePool: "₹300",
     banner: "/events/8digitheist.jpg",
     entryFee: "₹120 per team of 4",
     teamSize: "4 members",
@@ -165,7 +165,7 @@ export const events = [
         contact: "8693061108"
       }
     ],
-    registrationLink: "https://cesa2.vercel.app/events",
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScpfsA3sZzwXekVf-BjETA4tXxxC5HJRUiS2Sehl78DhReGmw/viewform?usp=header",
     highlight: "🔥 The ultimate heist challenge awaits! ₹300 prize for each group winner + eternal bragging rights! 🏆",
     feedback: false
   }
