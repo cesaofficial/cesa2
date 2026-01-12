@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Navbar from '../components/navbar';
 import Hero from '../components/landing/hero';
 import MissionSection from '../components/landing/MissionSection';
 import WhatsHappening from '../components/landing/WhatsHappening';
@@ -19,7 +18,6 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-200">
-      <Navbar />
       <main className="flex-grow">
         <Hero />
         <WhatsHappening />
