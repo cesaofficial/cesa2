@@ -4,6 +4,7 @@ import { TEAMS } from '../constants/teams';
 import Sidebar from '../components/team/Sidebar';
 import TeamSection from '../components/team/TeamSection';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import Navbar from '../components/navbar';
 
 const generateTeamId = (teamName) => {
   return teamName.replace(/ & /g, '-').replace(/\s+/g, '-').toLowerCase();
@@ -94,6 +95,7 @@ const Team = () => {
 
   return (
     <>
+      <Navbar />
       <div className="background-container">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
