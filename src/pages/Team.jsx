@@ -101,7 +101,7 @@ const Team = () => {
         <div className="blob blob-2"></div>
         <div className="blob blob-3"></div>
       </div>
-      <div className="relative z-10 min-h-screen font-sans text-slate-300 selection:bg-violet-500/30">
+      <div className="relative z-10 min-h-screen py-16 px-4 sm:px-6 lg:px-8 font-sans text-slate-300 selection:bg-violet-500/30">
         <div className="sticky top-0 z-20 bg-[#0D0D0D]/80 backdrop-blur-lg border-b border-slate-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <header className="text-center pt-6 pb-2 relative">
