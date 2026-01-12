@@ -18,7 +18,7 @@ const Navbar = () => {
   }, [scrolled]);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Events', href: '/events' },
     { name: 'Team', href: '/team' },
@@ -57,12 +57,6 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="hidden md:block">
-            <button className="bg-[#3937ff] hover:bg-[#2a28cc] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-              Join Us
-            </button>
           </div>
 
           <div className="-mr-2 flex md:hidden">
