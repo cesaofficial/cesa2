@@ -112,8 +112,12 @@ export const events = [
     ],
     coordinators: [
       {
-        name: "Event Coordinator",
-        contact: "connect.cesaofficial@gmail.com"
+        name: "Mrunal Sawant",
+        contact: "9322010951"
+      },
+      {
+        name: "Devanshi Parmar",
+        contact : "9712890811"
       }
     ],
     registrationLink: "https://forms.gle/bZv4JyTNjtuPvKV49",
@@ -128,7 +132,7 @@ export const events = [
     date: "2025-01-20",
     location: "Computer Lab",
     prizePool: "₹300",
-    banner: "/events/8digitheist.jpg",
+    banner: "/events/8-digit-heist.jpeg",
     entryFee: "₹120 per team of 4",
     teamSize: "4 members",
     description: "🔥 The wait is finally over! CESA brings you the most thrilling event of the year - the 8 Digit Heist! 🕵️‍♂️💎\n\nGet ready for 8 mind-blowing rounds where each challenge rewards you with precious 2-digit codes by solving electrifying quiz puzzles! After 4 intense rounds, enter the legendary 8-digit password you've collected on the provided mobile device to unlock the ultimate treasure chest!\n\n🎯 Think you have what it takes? Gather your squad of 4 brilliant minds and prepare for:\n\n⚡ Heart-pounding challenges that will test your wits\n🧩 Brain-teasing puzzles that push your limits\n🏆 Glory, bragging rights, and amazing prizes worth ₹300 per winning team!\n\n📱 The final unlock awaits - will you be the one to crack the code and claim victory?\n\nDon't miss out on the most talked-about event of the season! Limited spots available - register your team NOW and let the games begin! 🚀",
@@ -167,6 +171,132 @@ export const events = [
     ],
     registrationLink: "https://forms.gle/RZx1FHo9NaqpGuvTA",
     highlight: "🔥 The ultimate heist challenge awaits! ₹300 prize for each group winner + eternal bragging rights! 🏆",
+    feedback: false
+  },
+  {
+    id: 4,
+    title: "Code Twist",
+    type: "Coding Challenge",
+    status: "upcoming",
+    date: "2025-01-20",
+    location: "Computer Lab",
+    prizePool: "₹300 + Goodies",
+    banner: "/events/code-twist.jpeg",
+    entryFee: "₹30 per participant",
+    teamSize: "Solo",
+    description: "🧩 Welcome to Code Twister, where complexity meets creativity! This isn't your ordinary coding competition - here, we reward the most intricate, function-rich solutions!\n\n🏆 The challenge? Write the most complex, function-heavy code possible while solving the given problem. The more functions, the better!\n\n🎯 How to Win:\n• Create solutions with maximum complexity and function count\n• Showcase your ability to break down problems into multiple functions\n• The most elaborate, function-dense solution wins!\n• Bonus points for creative function usage and clever implementations\n\n💡 Pro Tip: Think outside the box - more functions = better chances to win!\n\n🏆 Prize: ₹300 + exciting goodies for the most function-packed solution!\n\n🔥 Ready to twist your brain and flex your coding muscles? Register now and show us your most complex code yet! 🚀",
+    coordinators: [
+      {
+        name: "Sanchita Bhoy",
+        contact: "7875893587 [WhatsApp only]"
+      },
+      {
+        name: "Gaurav Salunkhe",
+        contact: "7263869677"
+      }
+    ],
+    registrationLink: "#",
+    highlight: "🧩 Test your coding skills in this solo challenge! Win ₹300 + goodies for the most efficient solutions! 🏆",
+    feedback: false
+  },
+  {
+    id: 5,
+    title: "Bowling",
+    type: "Sports",
+    status: "upcoming",
+    date: "2025-01-20",
+    location: "Sports Complex",
+    prizePool: "₹100",
+    banner: "/events/bowling.jpeg",
+    entryFee: "₹30 per participant",
+    teamSize: "Individual",
+    description: "🎳 Strike it big at our Bowling Tournament! Compete against fellow students in this exciting bowling challenge.\n\n🏆 Format:\n• Rounds of 5 players each\n• Highest score in each round wins and advances\n• Multiple rounds until we have our ultimate champion!\n\n💪 Show off your bowling skills and take home the prize of ₹100!\n\n🎯 Don't miss this chance to have fun, make new friends, and show everyone who's the bowling king or queen! 👑",
+    coordinators: [
+      {
+        name: "Dhanashree",
+        contact: "8976991533"
+      },
+      {
+        name: "Nikhil",
+        contact: "8369297495"
+      }
+    ],
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfWCtIGpuohU86iBerMONW99h3G76h6E5a8JA5T1ZsmKh7iaA/viewform",
+    highlight: "🎳 Strike it rich! Compete in our bowling tournament for a chance to win ₹100! 🏆",
+    feedback: false
+  },
+  {
+    id: 6,
+    title: "Mock Interview",
+    type: "Professional Development",
+    status: "upcoming",
+    date: "2025-01-20",
+    location: "Seminar Hall",
+    prizePool: "₹400",
+    banner: "/events/mock-interview.jpeg",
+    entryFee: "₹40 per participant",
+    teamSize: "Individual",
+    description: "💼 Get interview-ready with our Mock Interview session! Experience a real interview scenario with industry professionals.\n\n🎯 What to expect:\n• One-on-one interview sessions\n• Constructive feedback from experts\n• Tips to improve your interview skills\n• Chance to win ₹400 for the best performance!\n\n🏆 Only one winner will be selected based on overall performance.\n\nThis is your opportunity to practice, learn, and gain confidence before your actual interviews. Don't miss out! 🚀",
+    coordinators: [
+      {
+        name: "Swarali",
+        contact: "9967782259"
+      },
+      {
+        name: "Aditi",
+        contact: "8097242699"
+      }
+    ],
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf7sIXrK8-T7_KkGKFNk3jb1lQI5X5LMb6iXhtHO3fw6udO2Q/viewform",
+    highlight: "💼 Ace your next interview! Win ₹400 in our Mock Interview challenge. One winner takes all! 🎯",
+    feedback: false
+  },
+  {
+    id: 7,
+    title: "Reel Making",
+    type: "Creative",
+    status: "upcoming",
+    date: "2025-01-20",
+    location: "Campus Grounds",
+    prizePool: "₹300",
+    banner: "/events/reel-making.jpeg",
+    entryFee: "₹50 per participant",
+    teamSize: "Individual/Team",
+    description: "🎬 Lights, Camera, Action! Showcase your creativity in our Reel Making Competition.\n\n🎥 Create the most engaging, creative, and viral-worthy reel to win exciting prizes!\n\n🏆 Prizes:\n• 1st Prize: ₹300\n• Special recognition for most creative entries\n\n📌 Theme: College Life & Events\n\n🎯 Judging Criteria:\n• Creativity & Originality\n• Content Quality\n• Engagement Potential\n• Relevance to Theme\n\n📱 Get ready to capture, create, and conquer! The best reel wins! 🚀",
+    coordinators: [
+      {
+        name: "Samruddhi",
+        contact: "8262011672"
+      },
+      {
+        name: "Yash",
+        contact: "9595659398"
+      }
+    ],
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe0TYsaCZR9NH3YLSOkqseKo_-ox3K1BiIIHWoeaWkCZVTCcg/viewform",
+    highlight: "🎬 Create, post, and win! ₹300 prize for the best college life reel. Show us your creativity! 🎥",
+    feedback: false
+  },
+  {
+    id: 8,
+    title: "BGMI Tournament",
+    type: "Gaming",
+    status: "upcoming",
+    date: "2025-01-20",
+    location: "Gaming Zone",
+    prizePool: "Based on Participation",
+    banner: "/events/bgmi.jpeg",
+    entryFee: "₹150 per team",
+    teamSize: "Squad (4 members)",
+    description: "🎮 Gear up for the ultimate BGMI showdown! Battle it out with the best squads on campus in this high-octane gaming tournament.\n\n🏆 Prize Pool:\n• Based on total participation\n• Exciting rewards for top performers\n• Special in-game items and goodies\n\n⚔️ Tournament Format:\n• Squad-based battles (4 players per team)\n• Multiple rounds of intense gameplay\n• Final showdown between top teams\n\n🔫 Show off your skills, strategies, and teamwork to emerge as the ultimate BGMI champions!\n\n📱 Register your squad now and get ready to conquer the battleground! 🚀",
+    coordinators: [
+      {
+        name: "Om Rajkurkar",
+        contact: "8669822590"
+      }
+    ],
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScYqJayWmyqe731vfm9jUP4LAUjNykIkv1vzeZC5BnnNSPjlQ/viewform",
+    highlight: "🎮 Assemble your squad! BGMI tournament with exciting prizes based on participation. Only ₹150 per team! 🔥",
     feedback: false
   }
 ];
