@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 import Team from './pages/Team';
 import Memories from './pages/Memories';
 import './index.css';
+import Navbar from './components/navbar';
 
 function App() {
   // Set up dark mode by default
@@ -26,6 +27,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
         <Routes>
+          <Navbar />
           <Route path="/" element={<Landing />} />
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
