@@ -81,12 +81,12 @@ export const events = [
     description: "🗺️ Adventure calls your name! CESA presents the most epic Scavenger Hunt of the year! 🏃‍♂️💨\n\nGet ready for an adrenaline-pumping campus-wide treasure hunt that will push your detective skills to the limit! Navigate through mind-bending clues, solve mysterious puzzles, and race against time in the ultimate test of teamwork and quick thinking!\n\n🎯 Assemble your elite squad of 4 adventurers and prepare for:\n\n⚡ Lightning-fast clue deciphering challenges\n🧩 Complex riddles that will blow your mind\n🏁 Heart-racing races to uncover hidden treasures\n🏆 Amazing prizes worth ₹2,000 for the winning team + exclusive goodies!\n\n📍 Every corner of campus becomes your playground - from the quadrangle to hidden spots you never knew existed!\n\nWill your team be the first to crack the final clue and claim the legendary treasure? The clock is ticking, the competition is fierce, and glory awaits!\n\nDon't miss the most thrilling adventure of the season! Register your team NOW and let the hunt begin! 🚀",
     rounds: [
       {
-        name: "Round 1: Clue Hunt",
-        description: "Teams will receive their first clue and must decipher it to find the next location."
+        name: "Round 1: Memory Collect",
+        description: "Teams will have to collect photos of certain location."
       },
       {
-        name: "Round 2: Puzzle Challenge",
-        description: "Solve complex puzzles and riddles to unlock the next set of clues."
+        name: "Round 2: Token Bonanza",
+        description: "Solve complex puzzles and riddles to unlock the next set of clues and collect Token."
       },
       {
         name: "Round 3: Final Treasure",
