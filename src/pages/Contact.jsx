@@ -1,28 +1,46 @@
-import React, { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  MessageSquare, 
-  User, 
-  MailCheck, 
-  Github, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  X as XIcon
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  MessageSquare,
+  User,
+  MailCheck,
+  Github,
+  Twitter,
+  Instagram,
+  Linkedin,
+  X as XIcon,
+  ArrowLeft
 } from 'lucide-react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const Contact = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: 'Sponsorship Inquiry',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  // Check if coming from sponsor button
+  useEffect(() => {
+    if (location.state?.fromSponsor) {
+      setFormData(prev => ({
+        ...prev,
+        subject: 'Sponsorship Inquiry',
+        message: `Hello CESA Team,\n\nI am interested in becoming a sponsor for your events. Please provide more information about sponsorship opportunities.\n\nBest regards,\n[Your Name]`
+      }));
+    }
+  }, [location.state]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,14 +50,19 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
+    setError('');
+
+    try {
+      // Save to Firebase
+      await addDoc(collection(db, 'sponsorSubmissions'), {
+        ...formData,
+        timestamp: serverTimestamp(),
+        isSponsorInquiry: formData.subject === 'Sponsorship Inquiry'
+      });
+
       setIsSubmitted(true);
       // Reset form
       setFormData({
@@ -50,45 +73,43 @@ const Contact = () => {
       });
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="absolute inset-0 opacity-25">
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(99, 102, 241, 0.4) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.4) 1px, transparent 1px)
-              `,
-              backgroundSize: '32px 32px',
-            }}
-          ></div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12 relative">
+          {location.state?.fromSponsor && (
+            <button
+              onClick={() => navigate(-1)}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+            >
+              <ArrowLeft className="mr-2" size={20} />
+              Back
+            </button>
+          )}
+          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
+            {location.state?.fromSponsor ? 'Become a Sponsor' : 'Get in Touch'}
+          </h1>
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300 sm:mt-4">
+            {location.state?.fromSponsor
+              ? "Partner with us to support our events and reach a wider audience. Let's create something amazing together!"
+              : "Have questions or want to collaborate? We'd love to hear from you!"}
+          </p>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-              <span className="block text-[#3937ff] dark:text-[#5d5bff]">Get in Touch</span>
-              <span className="block text-[#3937ff] dark:text-[#5d5bff]">With CESA</span>
-            </h1>
-            <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
-              Have questions or want to collaborate? We'd love to hear from you. Our team is here to help.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Main Content */}
-      <section className="py-16 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
-              <div className="p-8">
+        {/* Main Content */}
+        <section className="py-16 bg-white dark:bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 p-8">
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Send us a message</h2>
                   <p className="mt-2 text-gray-600 dark:text-gray-300">We'll get back to you as soon as possible</p>
@@ -104,6 +125,20 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {error && (
+                      <div className="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div className="flex">
+                          <div className="flex-shrink-0">
+                            <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div className="ml-3">
+                            <p className="text-sm text-red-700">{error}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -206,115 +241,78 @@ const Contact = () => {
                   </form>
                 )}
               </div>
-            </div>
 
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-8">
-                  Have questions about our events, workshops, or want to collaborate? Reach out to us through any of the channels below.
-                </p>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-[#5d5bff]" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Our Location</h3>
-                      <p className="mt-1 text-gray-600 dark:text-gray-300">
-                        Sector 7,CBD Belapur,Navi Mumbai<br />
-                        Maharashtra 400614
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-[#5d5bff]" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Email Us</h3>
-                      <p className="mt-1 text-gray-600 dark:2text-gray-300">
-                        <a href="mailto:connect.cesaofficial@gmail.com" className="hover:text-[#5d5bff] transition-colors">
-                          connect.cesaofficial@gmail.com
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-[#5d5bff]" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">Call Us</h3>
-                      <p className="mt-1 text-gray-600 dark:text-gray-300">
-                        <a href="tel:9322010951" className="hover:text-[#5d5bff] transition-colors">
-                          +919322010951
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Follow Us</h3>
-                  <div className="flex space-x-4">
-                    {[
-                      { 
-                        name: 'Instagram', 
-                        icon: Instagram, 
-                        url: 'https://www.instagram.com/cesa.bvcoe?igsh=MWl2enlkY3UxOThxeg==',
-                        color: 'hover:text-pink-600',
-                        iconColor: 'text-pink-500'
-                      },
-                      { 
-                        name: 'LinkedIn', 
-                        icon: Linkedin, 
-                        url: 'https://www.linkedin.com/in/cesa-bvcoe-17200b378/',
-                        color: 'hover:text-blue-600',
-                        iconColor: 'text-blue-600'
-                      },
-                    ].map((social) => {
-                      const Icon = social.icon;
-                      return (
+              {/* Contact Information */}
+              <div className="space-y-8">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                    {location.state?.fromSponsor ? 'Why Sponsor Us?' : 'Contact Information'}
+                  </h2>
+                  {location.state?.fromSponsor ? (
+                    <div className="mt-6 space-y-4">
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0 h-6 w-6 text-blue-500 flex items-center justify-center">
+                          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <p className="ml-3 text-base text-gray-500 dark:text-gray-300">
+                          Reach a highly engaged audience of tech enthusiasts and students
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0 h-6 w-6 text-blue-500 flex items-center justify-center">
+                          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <p className="ml-3 text-base text-gray-500 dark:text-gray-300">
+                          Showcase your brand at our high-profile events
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0 h-6 w-6 text-blue-500 flex items-center justify-center">
+                          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <p className="ml-3 text-base text-gray-500 dark:text-gray-300">
+                          Access to top talent for recruitment
+                        </p>
+                      </div>
+                      <div className="mt-8">
+                        <h4 className="text-md font-medium text-gray-900 dark:text-white mb-2">Contact our team</h4>
                         <a
-                          key={social.name}
-                          href={social.url}
-                          className={`${social.color} transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={social.name}
+                          href="mailto:sponsors@cesa.com"
+                          className="flex items-center text-base text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                         >
-                          {social.customIcon || <Icon className={`h-6 w-6 ${social.iconColor}`} />}
+                          sponsors@cesa.com
                         </a>
-                      );
-                    })}
-                  </div>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
-              </div>
-              
-              {/* Map */}
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
-                <div className="aspect-w-16 aspect-h-9 w-full h-64 md:h-80">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.846927501973!2d73.05250327425045!3d19.026465653527598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c24393d763af%3A0x266652df8009380d!2sBharati%20Vidyapeeth%20College%20of%20Engineering%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1766737774667!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    title="BVCOE Navi Mumbai Location"
-                    aria-label="Map showing BVCOE Navi Mumbai location"
-                  ></iframe>
+
+                {/* Map */}
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                  <div className="aspect-w-16 aspect-h-9 w-full h-64 md:h-80">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.846927501973!2d73.05250327425045!3d19.026465653527598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c24393d763af%3A0x266652df8009380d!2sBharati%20Vidyapeeth%20College%20of%20Engineering%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1766737774667!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      title="BVCOE Navi Mumbai Location"
+                      aria-label="Map showing BVCOE Navi Mumbai location"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

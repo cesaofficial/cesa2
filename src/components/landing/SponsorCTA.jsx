@@ -20,7 +20,13 @@ const SponsorCTA = () => {
           
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:sponsor@cesa.com"
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = '/contact';
+                window.scrollTo(0, 0);
+                window.history.replaceState({ fromSponsor: true }, '', '/contact');
+              }}
               className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium rounded-md text-white bg-[#3937ff] hover:bg-[#2a28cc] shadow-sm transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg"
             >
               Become a Sponsor

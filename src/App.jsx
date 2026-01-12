@@ -1,15 +1,17 @@
 
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Events from './pages/Events';
 import About from './pages/about/About';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
 import Team from './pages/Team';
 import Memories from './pages/Memories';
 import './index.css';
 import Navbar from './components/navbar';
+import { auth } from './firebase';
 
 function App() {
   // Set up dark mode by default
@@ -32,9 +34,10 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/team" element={<Team />} />
           <Route path="/memories" element={<Memories />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
