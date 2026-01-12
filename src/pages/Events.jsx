@@ -62,7 +62,7 @@ const Events = () => {
     }
 
     return (
-       <Navbar />
+     
       <motion.div
         className="text-center py-16 px-4"
         initial={{ opacity: 0, y: 20 }}
@@ -70,6 +70,7 @@ const Events = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-sm mx-auto mb-8">
+            <Navbar />
           <img
             src={image}
             alt="No events"
