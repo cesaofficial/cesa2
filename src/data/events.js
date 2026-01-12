@@ -221,7 +221,7 @@ export const events = [
         contact: "8369297495"
       }
     ],
-    registrationLink: "https://forms.gle/Xm4FjP4jB8i8bi4R8",
+    registrationLink: "https://forms.gle/XRJW2nGQiZ3q3c9U8",
     highlight: "🎳 Strike it rich! Compete in our bowling tournament for a chance to win ₹100! 🏆",
     feedback: false
   },
