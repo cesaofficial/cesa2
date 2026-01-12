@@ -195,7 +195,7 @@ export const events = [
         contact: "7263869677"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfWCtIGpuohU86iBerMONW99h3G76h6E5a8JA5T1ZsmKh7iaA/viewform",
+    registrationLink: "https://forms.gle/Rv5LkMxCePqJNGy5A",
     highlight: "🧩 Test your coding skills in this solo challenge! Win ₹300 + goodies for the most efficient solutions! 🏆",
     feedback: false
   },
@@ -221,7 +221,7 @@ export const events = [
         contact: "8369297495"
       }
     ],
-    registrationLink: "",
+    registrationLink: "https://forms.gle/Xm4FjP4jB8i8bi4R8",
     highlight: "🎳 Strike it rich! Compete in our bowling tournament for a chance to win ₹100! 🏆",
     feedback: false
   },
@@ -247,7 +247,7 @@ export const events = [
         contact: "8097242699"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf7sIXrK8-T7_KkGKFNk3jb1lQI5X5LMb6iXhtHO3fw6udO2Q/viewform",
+    registrationLink: "https://forms.gle/UAoBAQJgo8c4hC116",
     highlight: "💼 Ace your next interview! Win ₹400 in our Mock Interview challenge. One winner takes all! 🎯",
     feedback: false
   },
@@ -273,7 +273,7 @@ export const events = [
         contact: "9595659398"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSe0TYsaCZR9NH3YLSOkqseKo_-ox3K1BiIIHWoeaWkCZVTCcg/viewform",
+    registrationLink: "https://forms.gle/6u127kpVaqg86Gsp9",
     highlight: "🎬 Create, post, and win! ₹300 prize for the best college life reel. Show us your creativity! 🎥",
     feedback: false
   },
@@ -295,7 +295,7 @@ export const events = [
         contact: "8669822590"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScYqJayWmyqe731vfm9jUP4LAUjNykIkv1vzeZC5BnnNSPjlQ/viewform",
+    registrationLink: "https://forms.gle/s8kPgMVkFwYD6vax5",
     highlight: "🎮 Assemble your squad! BGMI tournament with exciting prizes based on participation. Only ₹150 per team! 🔥",
     feedback: false
   }
