@@ -290,7 +290,62 @@ const Contact = () => {
                         </a>
                       </div>
                     </div>
-                  ) : null}
+                  ) : (
+                    <div className="space-y-4">
+                      {/* Phone */}
+                      <div className="flex items-center">
+                        <Phone className="h-5 w-5 text-blue-500" />
+                        <a
+                          href="tel:+919322010951"
+                          className="ml-3 text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                        >
+                          +91 93220 10951
+                        </a>
+                      </div>
+
+                      {/* Email */}
+                      <div className="flex items-center">
+                        <Mail className="h-5 w-5 text-blue-500" />
+                        <a
+                          href="mailto:connect.cesaofficial@gmail.com"
+                          className="ml-3 text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                        >
+                          connect.cesaofficial@gmail.com
+                        </a>
+                      </div>
+
+                      {/* Location */}
+                      <div className="flex items-center">
+                        <MapPin className="h-5 w-5 text-blue-500" />
+                        <span className="ml-3 text-gray-700 dark:text-gray-300">
+                          BVCOE, Navi Mumbai
+                        </span>
+                      </div>
+
+                      {/* Social Links */}
+                      <div className="flex items-center gap-4 pt-4">
+                        <a
+                          href="https://www.instagram.com/cesa.bvcoe?igsh=MWl2enlkY3UxOThxeg=="
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Instagram"
+                          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          <Instagram className="h-6 w-6 text-pink-500" />
+                        </a>
+
+                        <a
+                          href="https://www.linkedin.com/in/cesa-bvcoe-17200b378/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="LinkedIn"
+                          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          <Linkedin className="h-6 w-6 text-blue-600" />
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Map */}
