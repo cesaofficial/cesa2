@@ -26,8 +26,8 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+         <Navbar />
         <Routes>
-          <Navbar />
           <Route path="/" element={<Landing />} />
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
