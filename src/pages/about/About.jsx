@@ -1,4 +1,5 @@
 import { Award, Users, Code, Zap, Cpu, BookOpen, Rocket, GraduationCap, Briefcase, Globe, Calendar, Clock, MapPin, ArrowRight, Quote, ListChecks, Trophy, Users2 } from 'lucide-react';
+import Navbar from '../components/navbar';
 
 const About = () => {
   const stats = [
@@ -58,6 +59,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 pt-32 pb-20 sm:pt-40 sm:pb-32">
         <div className="absolute inset-0 opacity-25">
