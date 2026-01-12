@@ -116,7 +116,7 @@ export const events = [
         contact: "connect.cesaofficial@gmail.com"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSciM_kBuXzb4pylCkuhgWzHJfwCVpG6nWMgY_ktKcVEKJrUhA/viewform?usp=header",
+    registrationLink: "https://forms.gle/bZv4JyTNjtuPvKV49",
     highlight: "🗺️ The ultimate campus adventure awaits! ₹2,000 prize pool + exclusive treasures for winners! 🏃‍♂️",
     feedback: false
   },
@@ -165,7 +165,7 @@ export const events = [
         contact: "8693061108"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLScpfsA3sZzwXekVf-BjETA4tXxxC5HJRUiS2Sehl78DhReGmw/viewform?usp=header",
+    registrationLink: "https://forms.gle/RZx1FHo9NaqpGuvTA",
     highlight: "🔥 The ultimate heist challenge awaits! ₹300 prize for each group winner + eternal bragging rights! 🏆",
     feedback: false
   }
