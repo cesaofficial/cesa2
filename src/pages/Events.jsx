@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { events as eventsData, eventTypes, viewModes } from '../data/events';
 import EventCard from '../components/events/EventCard';
+import Navbar from '../components/navbar';
 import EventModal from '../components/events/EventModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Grid, List, ChevronDown } from 'lucide-react';
@@ -121,7 +122,7 @@ const Events = () => {
             }}
           ></div>
         </div>
-
+<Navbar />
         {/* Header */}
         <div className="relative mb-16">
           {/* Logo in top-left corner */}
