@@ -72,7 +72,7 @@ export const events = [
     title: "Scavenger Hunt",
     type: "Adventure Challenge",
     status: "upcoming",
-    date: "2025-01-21",
+    date: "2025-01-20",
     location: "College Quadrangle",
     prizePool: "₹2,000",
     banner: "/events/Futuristic Tech Poster for Scavenger Hunt_20260111_184536_0000.png",
