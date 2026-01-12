@@ -195,7 +195,7 @@ export const events = [
         contact: "7263869677"
       }
     ],
-    registrationLink: "#",
+    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfWCtIGpuohU86iBerMONW99h3G76h6E5a8JA5T1ZsmKh7iaA/viewform",
     highlight: "🧩 Test your coding skills in this solo challenge! Win ₹300 + goodies for the most efficient solutions! 🏆",
     feedback: false
   },
@@ -221,7 +221,7 @@ export const events = [
         contact: "8369297495"
       }
     ],
-    registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSfWCtIGpuohU86iBerMONW99h3G76h6E5a8JA5T1ZsmKh7iaA/viewform",
+    registrationLink: "",
     highlight: "🎳 Strike it rich! Compete in our bowling tournament for a chance to win ₹100! 🏆",
     feedback: false
   },
