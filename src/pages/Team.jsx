@@ -96,8 +96,6 @@ const Team = () => {
 
   return (
     <>
-      <Navbar />
-    <>
       <div className="background-container">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
@@ -146,7 +144,6 @@ const Team = () => {
           </main>
         </div>
       </div>
-    </>
     </>
   );
 };
