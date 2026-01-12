@@ -103,17 +103,17 @@ export const events = [
     prizes: [
       {
         position: 1,
-        prize: "₹2,000 + Trophy + Goodies"
+        prize: "₹1200 + Trophy + Goodies"
       },
       {
         position: 2,
-        prize: "₹1,000 + Goodies"
+        prize: "₹800 + Goodies"
       }
     ],
     coordinators: [
       {
         name: "Event Coordinator",
-        contact: "cesa@bvcoe.edu.in"
+        contact: "connect.cesaofficial@gmail.com"
       }
     ],
     registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSciM_kBuXzb4pylCkuhgWzHJfwCVpG6nWMgY_ktKcVEKJrUhA/viewform?usp=header",
