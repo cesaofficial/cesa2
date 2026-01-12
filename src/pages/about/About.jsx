@@ -1,5 +1,5 @@
 import { Award, Users, Code, Zap, Cpu, BookOpen, Rocket, GraduationCap, Briefcase, Globe, Calendar, Clock, MapPin, ArrowRight, Quote, ListChecks, Trophy, Users2 } from 'lucide-react';
-import Navbar from '../components/navbar';
+import Navbar from '../../components/navbar';
 
 const About = () => {
   const stats = [
