@@ -62,6 +62,7 @@ const Events = () => {
     }
 
     return (
+       <Navbar />
       <motion.div
         className="text-center py-16 px-4"
         initial={{ opacity: 0, y: 20 }}
@@ -108,7 +109,7 @@ const Events = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
-      <Navbar />
+     
       <div className="max-w-7xl mx-auto">
         {/* Grid background */}
         <div className="absolute inset-0 opacity-25">
