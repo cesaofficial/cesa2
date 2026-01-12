@@ -7,7 +7,7 @@ export const events = [
     type: "Coding Competition",
     status: "past",
     date: "2024-09-15",
-    time: "10:00 AM - 4:00 PM",title
+    time: "10:00 AM - 4:00 PM",
     location: "BVCOE Navi Mumbai",
     prizePool: "₹15,000",
     banner: "/events/code-clash-poster.jpeg",
