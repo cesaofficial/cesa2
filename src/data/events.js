@@ -75,7 +75,7 @@ export const events = [
     date: "2025-01-21",
     location: "College Quadrangle",
     prizePool: "₹2,000",
-    banner: "/events/scavanger hunt poster.png",
+    banner: "/events/Futuristic Tech Poster for Scavenger Hunt_20260111_184536_0000.png",
     entryFee: "₹200",
     teamSize: "4 members",
     description: "🗺️ Adventure calls your name! CESA presents the most epic Scavenger Hunt of the year! 🏃‍♂️💨\n\nGet ready for an adrenaline-pumping campus-wide treasure hunt that will push your detective skills to the limit! Navigate through mind-bending clues, solve mysterious puzzles, and race against time in the ultimate test of teamwork and quick thinking!\n\n🎯 Assemble your elite squad of 4 adventurers and prepare for:\n\n⚡ Lightning-fast clue deciphering challenges\n🧩 Complex riddles that will blow your mind\n🏁 Heart-racing races to uncover hidden treasures\n🏆 Amazing prizes worth ₹2,000 for the winning team + exclusive goodies!\n\n📍 Every corner of campus becomes your playground - from the quadrangle to hidden spots you never knew existed!\n\nWill your team be the first to crack the final clue and claim the legendary treasure? The clock is ticking, the competition is fierce, and glory awaits!\n\nDon't miss the most thrilling adventure of the season! Register your team NOW and let the hunt begin! 🚀",
