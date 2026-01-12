@@ -7,7 +7,7 @@ export const events = [
     type: "Coding Competition",
     status: "past",
     date: "2024-09-15",
-    time: "10:00 AM - 4:00 PM",
+    time: "10:00 AM - 4:00 PM",title
     location: "BVCOE Navi Mumbai",
     prizePool: "₹15,000",
     banner: "/events/code-clash-poster.jpeg",
@@ -125,7 +125,7 @@ export const events = [
     title: "The 8 Digit Heist",
     type: "Mystery Challenge",
     status: "upcoming",
-    date: "2025-01-21",
+    date: "2025-01-20",
     location: "Computer Lab",
     prizePool: "₹300",
     banner: "/events/8digitheist.jpg",
