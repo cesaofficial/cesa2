@@ -108,6 +108,7 @@ const Events = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
+      <Navbar />
       <div className="max-w-7xl mx-auto">
         {/* Grid background */}
         <div className="absolute inset-0 opacity-25">
@@ -122,7 +123,7 @@ const Events = () => {
             }}
           ></div>
         </div>
-<Navbar />
+
         {/* Header */}
         <div className="relative mb-16">
           {/* Logo in top-left corner */}
