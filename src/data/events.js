@@ -283,7 +283,7 @@ export const events = [
     type: "Gaming",
     status: "upcoming",
     date: "2025-01-20",
-    location: "Gaming Zone",
+    location: "Online",
     prizePool: "Based on Participation",
     banner: "/events/bgmi.jpeg",
     entryFee: "₹150 per team",
@@ -296,6 +296,28 @@ export const events = [
       }
     ],
     registrationLink: "https://forms.gle/s8kPgMVkFwYD6vax5",
+    highlight: "🎮 Assemble your squad! BGMI tournament with exciting prizes based on participation. Only ₹150 per team! 🔥",
+    feedback: false
+  },
+  {
+    id: 9,
+    title: "FreeFire Tournament",
+    type: "Gaming",
+    status: "upcoming",
+    date: "2025-01-20",
+    location: "Online",
+    prizePool: "Based on Participation",
+    banner: "",
+    entryFee: "₹100 per team",
+    teamSize: "Squad (4 members)",
+    description: "🎮 Gear up for the ultimate FreeFire showdown! Battle it out with the best squads on campus in this high-octane gaming tournament.\n\n🏆 Prize Pool:\n• Based on total participation\n• Exciting rewards for top performers\n• Special in-game items and goodies\n\n⚔️ Tournament Format:\n• Squad-based battles (4 players per team)\n• Multiple rounds of intense gameplay\n• Final showdown between top teams\n\n🔫 Show off your skills, strategies, and teamwork to emerge as the ultimate BGMI champions!\n\n📱 Register your squad now and get ready to conquer the battleground! 🚀",
+    coordinators: [
+      {
+        name: "Om Rajkurkar",
+        contact: "8669822590"
+      }
+    ],
+    registrationLink: "https://forms.gle/4W1UJUaiTf7HRc4k8",
     highlight: "🎮 Assemble your squad! BGMI tournament with exciting prizes based on participation. Only ₹150 per team! 🔥",
     feedback: false
   }
